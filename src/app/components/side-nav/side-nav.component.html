@@ -1,0 +1,24 @@
+<div class="content-container ">
+    <div id="bdSidebar" class="side-navbar bg-light d-flex flex-column flex-shrink-0 text-white offcanvas-md offcanvas-start">
+        <div class="text-dark">
+            <div class="app-title d-flex align-items-center justify-content-start">
+                <h5>User Profile</h5>
+            </div>
+            <div class="menus bg-light">
+                <hr class="menu_segregate">
+                <ul class="menu-items" >
+
+                    @for (m of menus; track m) {
+                        <li class="menu-btn"  (click)="navigateTo(m.url)" routerLinkActive="active" >
+                            <span class="ms-2">{{ m.title }}</span>
+                        </li>
+                    }
+                   
+                </ul>
+            </div>
+        </div>
+        <div class="logout mt-auto">
+            <button class="btn btn-danger ms-4" (click)="onLogOut()">Logout</button>
+        </div>
+    </div>
+</div>

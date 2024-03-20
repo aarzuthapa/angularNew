@@ -1,0 +1,26 @@
+.side-navbar {
+    width: 280px;
+    min-height: 100vh;
+    position: fixed;
+    padding: 10px 0 0 20px;
+    background-color: #FAFAFA;
+    border-right: 1px solid #ffffff;
+  }
+
+  .menus {
+    height: 100%;
+    
+  }
+
+  .menus li {
+    list-style: none;
+    line-height: 2.5;
+  }
+
+  .menu-btn:hover{
+    cursor: pointer;
+    line-height: 2.5;
+    color: rgb(176, 20, 204);
+  }
+
+  

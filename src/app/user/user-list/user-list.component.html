@@ -1,0 +1,79 @@
+
+<div class="row">
+    <div class="col-sm-6">
+        <h5>User List</h5>
+    </div>
+    <div class="col-sm-6">
+        <button type="add" class="button btn-primary float-end" (click)="onAddClick()"><i class="fa fa-plus"> Add</i></button>
+    </div>
+</div>
+
+<br>
+<table  class="table table-striped table-bordered bg-light">
+    <thead>
+        <th>S.N</th>
+        <th>Personal ID</th>
+        <th>Full Name</th>
+        <th>Address</th>
+        <th>Contact</th>
+        <th>Age</th>
+        <th>Action</th>
+    </thead>
+
+    @for (data of submittedUser; track data;let i=$index) {
+        <tbody>
+            <td colspan="8">
+                <h6>Personal Details</h6>
+            </td>
+            <tr>
+                <td>{{i+1}}</td>
+                <td>{{data.id}}</td>
+                <td>{{data.fullName}}</td>
+                <td>{{data.address}}</td>
+                <td>{{data.contact}}</td>
+                <td>{{data.age }}</td>
+                <td>
+                    <button type="edit" class="btn btn-primary" style="margin: 8px" (click)="onEditClick(data.id)"><i class="fa fa-edit"></i></button>
+                    <button type="delete" class="btn btn-danger" style="margin: 8px" (click)="onDeleteClick(data.id)"><i class="fa fa-trash"></i></button>
+    
+                </td>
+            </tr>
+            <tr>
+                <td colspan="8">
+                    <h6>Family Details</h6>
+                    <table class="table mb-0 bg-light">
+                        <tr>
+                            <th>S.N</th>
+                            <th>Family ID</th>
+                            <th>FullName</th>
+                            <th>Address</th>
+                            <th>Contact</th>
+                            <th>Age</th>
+                            <th>Action</th>
+                        </tr>
+
+                        @for (fdata of data.familyDetails; track fdata; let i=$index) {
+                            <tr>
+                                <td>{{i+1}}</td>
+                                <td>{{fdata.id}}</td>
+                                <td>{{fdata.fullName}}</td>
+                                <td>{{fdata.address}}</td>
+                                <td>{{fdata.contact}}</td>
+                                <td>{{fdata.age }}</td>
+                                <td>
+                                    <button type="edit" class="btn btn-primary" style="margin: 10px"><i class="fa fa-edit"></i></button>
+                                    <button type="delete" class="btn btn-danger" style="margin: 10px" ><i class="fa fa-trash"></i></button>           
+                                </td>
+                            </tr>
+                        }
+                       
+                    </table>
+                </td>
+            </tr>
+    
+        </tbody>
+    }
+    
+</table>
+
+

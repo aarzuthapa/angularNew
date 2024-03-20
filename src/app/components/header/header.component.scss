@@ -1,0 +1,33 @@
+.header {
+    width: calc(100% - 280px);
+    height: 60px;
+    float: right;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    background-color: #FAFAFA;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .text {
+    font-size: 20px;
+
+  }
+  
+
+  
+  @media only screen and (max-width: 768px) {
+    .header {
+      width: 100%;
+    }
+  }
+  
+  @media only screen and (max-width: 480px) {
+    .header {
+      width: 100%;
+    }
+  }
+  

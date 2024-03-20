@@ -1,0 +1,120 @@
+<div class="wrapper">
+    <div class="mb-5">
+      <form [formGroup]="details" (ngSubmit)="onUpdate()">
+        <div class="border p-5 bg-light  rounded">
+          <p class="heading"><b>My Details</b></p>
+          <hr class="mt-1 mb-3" />
+          <div class="row g-4">
+  
+            <div class="col-md-6">
+              <label class="required" for="fullName">Full Name</label>
+              <input type="text" name="fullName" id="fullName" class="form-control" formControlName="fullName">
+              @if (details.get('fullName')?.invalid && details.get('fullName')?.touched) {
+              <small class="text-danger"> Full Name is required! </small>
+              }
+            </div>
+  
+            <div class="col-md-6">
+              <label class="required" for="address">Address</label>
+              <input type="text" name="address" id="address" class="form-control" formControlName="address">
+              @if (details.get('address')?.invalid && details.get('address')?.touched) {
+              <small class="text-danger"> Address is required! </small>
+              }
+            </div>
+  
+            <div class="col-md-6">
+              <label class="required" for="contact">Contact</label>
+              <input type="text" name="contact" id="contact" class="form-control" formControlName="contact">
+              @if (details.get('contact')?.invalid && details.get('contact')?.touched) {
+              <small class="text-danger"> Contact is required! </small>
+              }
+            </div>
+  
+            <div class="col-md-6">
+              <label class="required" for="age">Age</label>
+              <input type="text" name="age" id="age" class="form-control" formControlName="age">
+              @if (details.get('age')?.invalid && details.get('age')?.touched) {
+              <small class="text-danger"> Age is required! </small>
+              }
+            </div>
+          </div>
+  
+          <br>
+          <hr class="mt-1 mb-3" />
+          <div class="row">
+            <div class="col sm-6">
+              <p class="heading"><b>Family Details</b></p>
+            </div>
+            <div class="col-sm-6">
+              <button class="button float-end" id="add" (click)="addfamilyDetails()">
+                <i class="fa fa-plus"></i> Add More</button>
+            </div>
+          </div>
+  
+  
+          @for (control of familyDetails.controls; track control; let i=$index;) {
+          <div formArrayName="familyDetails">
+            <div [formGroupName]="i">
+              <div class="row">
+                <div class="col-sm-6 mt-3">
+                  <p><b>{{i+1}}. Enter your Family Details</b></p>
+                </div>
+                <div class="col-sm-6 mt-3">
+                  @if (i>=0) {
+                   <button class="btn btn-danger float-end" (click)="onDeleteButtonClick(i)"> <i class="fa fa-trash"></i></button>
+                  }
+  
+                </div>
+              </div>
+              <div class="row g-4">
+                <div class="col-md-6">
+                  <label class="required" for="fullName">Full Name</label>
+                  <input type="text" name="fullName" id="fullName" class="form-control" formControlName="fullName">
+                  @if (control.get('fullName')?.invalid && control.get('fullName')?.touched) {
+                  <small class="text-danger"> Full Name is required! </small>
+                  }
+                </div>
+  
+                <div class="col-md-6">
+                  <label class="required" for="address">Address</label>
+                  <input type="text" name="address" id="address" class="form-control" formControlName="address">
+                  @if (control.get('address')?.invalid && control.get('address')?.touched) {
+                  <small class="text-danger"> Address is required! </small>
+                  }
+                </div>
+  
+                <div class="col-md-6">
+                  <label class="required" for="contact">Contact</label>
+                  <input type="text" name="contact" id="contact" class="form-control" formControlName="contact">
+                  @if (control.get('contact')?.invalid && control.get('contact')?.touched) {
+                  <small class="text-danger"> Contact is required! </small>
+                  }
+                </div>
+  
+                <div class="col-md-6">
+                  <label class="required" for="age">Age</label>
+                  <input type="text" name="age" id="age" class="form-control" formControlName="age">
+                  @if (control.get('age')?.invalid && control.get('age')?.touched) {
+                  <small class="text-danger"> Age is required! </small>
+                  }
+                </div>
+              </div>
+            </div>
+          </div>
+          }
+  
+  
+  
+        </div>
+        <hr class="mt-3 mb-3" />
+        <div class="row">
+          <div class="col-sm-6 ">
+            <button type="reset" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+          </div>
+          <div class="col-sm-6 ">
+            <button type="save" class="button">Update</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

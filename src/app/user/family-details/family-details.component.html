@@ -1,0 +1,75 @@
+<div class="container-fluid">
+    <p class="heading">Family Details</p>
+    
+    <div class="box">  
+      <form [formGroup]="familyDetails">
+        <div class="row row-cols-1">
+          <div class="col">
+            <label class="required" for="fullName">Full Name</label>
+          </div>
+          <div class="col-sm-12">
+            <input type="text" name="fullName" id="fullName" class="form-control" formControlName="fullName">
+            @if (familyDetails.get('fullName')?.invalid && familyDetails.get('fullName')?.touched) {
+                <span class="text-danger"> Full Name is required! </span>
+            }
+            @if (submitted && familyDetails.get('fullName')?.errors?.['required']) {
+                <span class='text-danger'> Full Name is required! </span>
+            }
+          </div>
+        </div>
+  
+        <div class="row row-cols-1">
+          <div class="col">
+            <label class="required" for="address">Address</label>
+          </div>
+          <div class="col-sm-12">
+            <input type="address" name="address" id="address" class="form-control" formControlName="address">
+            @if (familyDetails.get('address')?.invalid && familyDetails.get('address')?.touched) {
+                <span class="text-danger"> Address is required! </span>
+            }
+            @if (submitted && familyDetails.get('address')?.errors?.['required']) {
+                <span class='text-danger'> Address is required! </span>
+            }
+          </div>
+        </div>
+  
+        <div class="row row-cols-1">
+          <div class="col">
+            <label class="required" for="contact">Contact</label>
+          </div>
+          <div class="col-sm-12">
+            <input type="number" name="contact" id="contact" class="form-control" formControlName="contact">
+            @if (familyDetails.get('contact')?.invalid && familyDetails.get('contact')?.touched) {
+                <span class="text-danger"> Contact is required! </span>
+            }
+            @if (submitted && familyDetails.get('contact')?.errors?.['required']) {
+                <span class='text-danger'> Contact is required! </span>
+            }
+          </div>
+        </div>
+  
+        <div class="row row-cols-1">
+          <div class="col">
+            <label class="required" for="age">Age</label>
+          </div>
+          <div class="col-sm-12">
+            <input type="text" name="age" id="age" class="form-control" formControlName="age">
+            @if (familyDetails.get('age')?.invalid && familyDetails.get('age')?.touched) {
+                <span class="text-danger"> Age is required! </span>
+            }
+            @if (submitted && familyDetails.get('age')?.errors?.['required']) {
+                <span class='text-danger'>Age is required! </span>
+            }
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col ">
+          <button type="save" class="btn" >Save</button>
+  
+          </div>
+        </div>
+      </form>
+  
+    </div>
+  </div>

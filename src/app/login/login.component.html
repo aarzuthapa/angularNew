@@ -1,0 +1,39 @@
+<div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
+
+                    <h3 class="mb-5">Login</h3>
+
+                    <form [formGroup]="loginDetail" (ngSubmit)="onSubmit(loginDetail.value)" >
+
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="typeEmailX-2">User Name</label>
+                            <input type="text" id="username" formControlName="username" class="form-control form-control-lg" />
+                            <div>
+                                @if (loginDetail.get('username')?.invalid && loginDetail.get('username')?.touched) {
+                                    <small class="text-danger"> Please fill the required field! </small>
+                                }
+                            </div>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="typePasswordX-2">Password</label>
+                            <input type="password" id="password" formControlName="password" class="form-control form-control-lg" />
+                            <div>
+                                @if (loginDetail.get('password')?.invalid && loginDetail.get('password')?.touched) {
+                                    <small class="text-danger">Please enter password! </small>
+                                }
+                            </div>
+                        </div>
+
+                        <button class="btn" type="submit" >Login</button>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
